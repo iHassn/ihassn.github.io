@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on &gt; $/var/www/html</title>
+    <link>https://ihassn.github.io/posts/</link>
+    <description>Recent content in Posts on &gt; $/var/www/html</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Made with &lt;3 by h3x1L</copyright>
+    <lastBuildDate>Fri, 24 Feb 2023 11:45:24 -0500</lastBuildDate><atom:link href="https://ihassn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kill Tty</title>
+      <link>https://ihassn.github.io/posts/kill-tty/</link>
+      <pubDate>Fri, 24 Feb 2023 11:45:24 -0500</pubDate>
+      
+      <guid>https://ihassn.github.io/posts/kill-tty/</guid>
+      <description>Out of the gate.
+python -c &amp;#39;import pty; pty.spawn(&amp;#34;/bin/bash&amp;#34;)&amp;#39; OR python3 -c &amp;#39;import pty; pty.spawn(&amp;#34;/bin/bash&amp;#34;)&amp;#39; export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp export TERM=xterm-256color alias ll=&amp;#39;ls -lsaht --color=auto&amp;#39; Keyboard Shortcut: Ctrl + Z (Background Process.) stty raw -echo ; fg ; reset stty columns 200 rows 200 Grab a valid tty. What OS are you on? Grab access to those binaries fast by exporting each environment variable. Debian/CentOS/FreeBSD Want a color terminal to easily tell apart file permissions?</description>
+    </item>
+    
+  </channel>
+</rss>
